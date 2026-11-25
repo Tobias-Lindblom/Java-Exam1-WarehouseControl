@@ -2,7 +2,7 @@ package model;
 
 import util.Farger;
 
-public class Lagermaskin {
+public abstract class Lagermaskin {
 
     private static int antalMaskiner = 0;
 

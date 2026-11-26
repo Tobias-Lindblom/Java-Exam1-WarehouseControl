@@ -14,7 +14,7 @@ public abstract class Lagermaskin {
     private int aktuellLast;
 
     // Gemensam konstruktor för samtliga maskiner
-    public Lagermaskin(
+    protected Lagermaskin(
             String maskinId,
             String modell,
             int maxLast,
@@ -64,9 +64,9 @@ public abstract class Lagermaskin {
     }
 
     // Gemensam regel för samtliga maskiner
-    public final void setLast(int vikt) {
+    public final void setLast (int vikt) {
 
-        if(vikt < 0 || vikt > maxLast) {
+        if (vikt < 0 || vikt > maxLast) {
 
             System.out.println(Farger.rod(
                     "[STOPP] " + vikt + " kg är inte tillåtet. "

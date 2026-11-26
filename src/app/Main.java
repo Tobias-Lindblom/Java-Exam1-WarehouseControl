@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Skapar våra två första lagermaskiner
+        // Skapar tre olika lagermaskiner
         Motviktstruck truck =
                 new Motviktstruck("TR-001", "Toyota", 1500);
 
@@ -44,10 +44,10 @@ public class Main {
         // Visar antalet registrerade maskiner
         System.out.println(
                 "Registrerade maskiner: "
-                + Lagermaskin.getAntalMaskiner()
+                        + Lagermaskin.getAntalMaskiner()
         );
 
-        // Loopar igenom samtliga maskinerna
+        // Loopar igenom samtliga maskiner
         for (Lagermaskin maskin : maskiner) {
 
             System.out.println();
@@ -102,7 +102,7 @@ public class Main {
 
             System.out.println(Farger.cyan(
                     "Ursprunglig last återställd: "
-                    + maskin.getAktuellLast() + " kg"
+                            + maskin.getAktuellLast() + " kg"
             ));
         }
 
@@ -116,8 +116,8 @@ public class Main {
         ));
 
         System.out.println(
-                "misslyckade tester: "
-                + (antalTester - godkandaTester)
+                "Misslyckade tester: "
+                        + (antalTester - godkandaTester)
         );
 
         if (godkandaTester == antalTester) {
@@ -146,9 +146,9 @@ public class Main {
     private static boolean testaLastregel(
             Lagermaskin maskin,
             int forsok,
-            boolean skaAcceptera) {
+            boolean skaAccepteras) {
 
-        // Soarar maskinens aktuella last
+        // Sparar maskinens aktuella last
         int fore = maskin.getAktuellLast();
 
         System.out.println(Farger.gul(
@@ -162,7 +162,7 @@ public class Main {
         );
 
         // Visar det förväntade resultatet
-        if (skaAcceptera) {
+        if (skaAccepteras) {
             System.out.println("Förväntat: Accepteras");
         } else {
             System.out.println("Förväntat: Nekas");
@@ -178,13 +178,13 @@ public class Main {
         // Bestämmer vilket värde vi förväntar oss
         int forvantadLast;
 
-        if (skaAcceptera) {
+        if (skaAccepteras) {
             forvantadLast = forsok;
         } else {
             forvantadLast = fore;
         }
 
-        // Kontrollerar omm testet lyckades
+        // Kontrollerar om testet lyckades
         if (efter == forvantadLast) {
 
             System.out.println(Farger.gron(
@@ -228,22 +228,22 @@ public class Main {
 
         System.out.println(
                 "Antal maskiner: "
-                + Lagermaskin.getAntalMaskiner()
+                        + Lagermaskin.getAntalMaskiner()
         );
 
         System.out.println(
                 "Total aktuell last: "
-                + totalLast + " kg"
+                        + totalLast + " kg"
         );
 
         System.out.println(
                 "Total lastkapacitet: "
-                + totalKapacitet + " kg"
+                        + totalKapacitet + " kg"
         );
 
         System.out.println(
                 "Ledig lastkapacitet: "
-                + (totalKapacitet - totalLast) + " kg"
+                        + (totalKapacitet - totalLast) + " kg"
         );
 
         // Visar en visuell indikator för den totala kapaciteten

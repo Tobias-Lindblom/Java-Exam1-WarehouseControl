@@ -3,7 +3,7 @@ package model;
 public class Palldragare extends Lagermaskin {
 
     // Palldragarens fasta egenskaper
-    private static  final int MAX_LAST = 2000;
+    private static final int MAX_LAST = 2000;
     private static final int MAX_LYFTHOJD = 200;
 
     // Konstruktor
@@ -35,7 +35,7 @@ public class Palldragare extends Lagermaskin {
                 "Arbete: Förflyttar gods till packstationen."
         );
 
-        // visar maskinens aktuella last och kapacitet
+        // Visar maskinens aktuella last och kapacitet
         visaKapacitet();
     }
 }

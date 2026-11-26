@@ -117,7 +117,7 @@ public abstract class Lagermaskin {
 
         System.out.println(
                 "Aktuell last: " + aktuellLast
-                + " / " + maxLast + " kg"
+                        + " / " + maxLast + " kg"
         );
 
         System.out.println(
@@ -126,11 +126,19 @@ public abstract class Lagermaskin {
                 )
         );
 
+        // Visar maskinens återstående lastkapacitet
+        System.out.println(
+                "Ledig kapacitet: "
+                        + getLedigKapacitet() + " kg"
+        );
+
+        // Kontrollerar maskinens kapacitetsstatus
         if (aktuellLast == maxLast) {
 
             System.out.println(
                     Farger.gul("Status: FULL KAPACITET")
             );
+
         } else {
 
             System.out.println(

@@ -9,6 +9,8 @@ import util.Farger;
 
 public class Main {
 
+    private static final String VERSION = "1.0.0";
+
     public static void main(String[] args) {
 
         // Skapar våra två första lagermaskiner
@@ -31,7 +33,15 @@ public class Main {
         // Visar programmets huvudrubrik
         Farger.rubrik("WAREHOUSE CONTROL");
 
-        // Visar amtalet registrerade maskiner
+        System.out.println(
+                "Maskin- och lasthantering"
+        );
+
+        System.out.println(
+                "Version: " + VERSION
+        );
+
+        // Visar antalet registrerade maskiner
         System.out.println(
                 "Registrerade maskiner: "
                 + Lagermaskin.getAntalMaskiner()
@@ -48,13 +58,81 @@ public class Main {
         // Testar programmets gemensamma lastregler
         Farger.rubrik("REGELTESTER");
 
-        // Försöker överskrida maskinens maximala last
-        testaLastregel(maskiner[0], 3000);
+        int antalTester = 0;
+        int godkandaTester = 0;
 
-        // Försöker tilldela en negativ last
-        testaLastregel(maskiner[0], -100);
+        for (Lagermaskin maskin : maskiner) {
 
-        // Visar en sammanfattning av samtliga maskiner
+            // Sparar ursprunglig last innan testerna
+            int ursprungligLast = maskin.getAktuellLast();
+
+            // Test 1: Negativ last
+            antalTester++;
+
+            if (testaLastregel(maskin, -1, false)) {
+                godkandaTester++;
+            }
+
+            // Test 2: Last över maxgränsen
+            antalTester++;
+
+            if (testaLastregel(
+                    maskin, maskin.getMaxLast() + 1, false)) {
+
+                godkandaTester++;
+            }
+
+            // Test 3: Minsta tillåtna last
+            antalTester++;
+
+            if (testaLastregel(maskin, 0, true)) {
+                godkandaTester++;
+            }
+
+            // Test 4: Exakt maximal last
+            antalTester++;
+
+            if (testaLastregel(
+                    maskin, maskin.getMaxLast(), true)) {
+                godkandaTester++;
+            }
+
+            // Återställer maskinens ursprungliga last
+            maskin.setLast(ursprungligLast);
+
+            System.out.println(Farger.cyan(
+                    "Ursprunglig last återställd: "
+                    + maskin.getAktuellLast() + " kg"
+            ));
+        }
+
+        // Visar sammanställning av regeltesterna
+        Farger.rubrik("TESTRESULTAT");
+
+        System.out.println("Genomförda tester: " + antalTester);
+
+        System.out.println(Farger.gron(
+                "Godkända tester: " + godkandaTester
+        ));
+
+        System.out.println(
+                "misslyckade tester: "
+                + (antalTester - godkandaTester)
+        );
+
+        if (godkandaTester == antalTester) {
+
+            System.out.println(Farger.gron(
+                    "[OK] Samtliga regeltester godkända."
+            ));
+        } else {
+
+            System.out.println(Farger.rod(
+                    "[FEL] Ett eller flera tester misslyckades."
+            ));
+        }
+
+        // Visar sammanfattningen efter genomförda tester
         visaSammanfattning(maskiner);
     }
 
@@ -64,48 +142,63 @@ public class Main {
         maskin.utforArbete();
     }
 
-    // Testar att felaktiga lastvärden stoppas
-    private static void testaLastregel(
-            Lagermaskin maskin, int forsok) {
+    // Testar att lastregeln fungerar enligt förväntat resultat
+    private static boolean testaLastregel(
+            Lagermaskin maskin,
+            int forsok,
+            boolean skaAcceptera) {
 
-        // Sparar aktuell last innan förändringen
+        // Soarar maskinens aktuella last
         int fore = maskin.getAktuellLast();
 
-        // Visar vilken maskin som testas
         System.out.println(Farger.gul(
                 "\nTest: " + maskin.getMaskinId()
         ));
 
-        System.out.println(
-                "Före: " + fore + " kg"
-        );
+        System.out.println("Före: " + fore + " kg");
 
         System.out.println(
                 "Försöker tilldela: " + forsok + " kg"
         );
 
+        // Visar det förväntade resultatet
+        if (skaAcceptera) {
+            System.out.println("Förväntat: Accepteras");
+        } else {
+            System.out.println("Förväntat: Nekas");
+        }
+
         // Försöker ändra maskinens last
         maskin.setLast(forsok);
 
-        // Hämtar lasten efter förändringsförsöket
         int efter = maskin.getAktuellLast();
 
-        System.out.println(
-                "Efter: " + efter + " kg"
-        );
+        System.out.println("Efter: " + efter + " kg");
 
-        // Kontrollerar att det ursprungliga värdet är oförändrat
-        if (fore == efter) {
+        // Bestämmer vilket värde vi förväntar oss
+        int forvantadLast;
+
+        if (skaAcceptera) {
+            forvantadLast = forsok;
+        } else {
+            forvantadLast = fore;
+        }
+
+        // Kontrollerar omm testet lyckades
+        if (efter == forvantadLast) {
 
             System.out.println(Farger.gron(
-                    "[OK] Lasten är oförändrad."
+                    "[OK] Testet lyckades."
             ));
 
+            return true;
         } else {
 
             System.out.println(Farger.rod(
-                    "[FEL] Lasten förändrades."
+                    "[FEL] Testet misslyckades."
             ));
+
+            return false;
         }
     }
 

@@ -18,14 +18,14 @@ public abstract class Lagermaskin {
             String maskinId,
             String modell,
             int maxLast,
-            int mmaxLyfthojd,
+            int maxLyfthojd,
             String drivning,
             int startLast) {
 
         this.maskinId = maskinId;
         this.modell = modell;
         this.maxLast = maxLast;
-        this.maxLyfthojd = mmaxLyfthojd;
+        this.maxLyfthojd = maxLyfthojd;
         this.drivning = drivning;
         this.aktuellLast = 0;
 
@@ -104,11 +104,11 @@ public abstract class Lagermaskin {
                 "----------------------------------------"
         );
 
-        System.out.println("modell: " + modell);
+        System.out.println("Modell: " + modell);
         System.out.println("Drivning: " + drivning);
 
         System.out.println(
-                "max lyfthöjd: " + maxLyfthojd + " mm"
+                "Max lyfthöjd: " + maxLyfthojd + " mm"
         );
     }
 

@@ -16,7 +16,7 @@ public class Ledstaplare extends Lagermaskin {
                 modell,
                 MAX_LAST,
                 MAX_LYFTHOJD,
-                "elektrisk",
+                "Elektrisk",
                 startLast
         );
     }

@@ -3,7 +3,9 @@ package app;
 import model.Lagermaskin;
 import model.Motviktstruck;
 import model.Ledstaplare;
+import model.Palldragare;
 import util.Farger;
+
 
 public class Main {
 
@@ -16,10 +18,14 @@ public class Main {
         Ledstaplare staplare =
                 new Ledstaplare("LS-001", "BT", 800);
 
+        Palldragare dragare =
+                new Palldragare("PD-001", "BT Lifter", 500);
+
         // Samlar maskinerna i en gemensam array
         Lagermaskin[] maskiner = {
                 truck,
                 staplare,
+                dragare,
         };
 
         // Visar programmets huvudrubrik

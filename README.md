@@ -14,14 +14,14 @@ Programmet visar information om lagermaskinerna, genomförda regeltester och vis
 ## Utskrift från Run-fönstret
 
 ========================================<br>
-WAREHOUSE CONTROL<br>
+   WAREHOUSE CONTROL<br>
 ========================================<br>
 Maskin- och lasthantering<br>
 Version: 1.0.0<br>
 Registrerade maskiner: 3<br>
 
-TR-001 | MOTVIKTSTRUCK
-----------------------------------------
+TR-001 | MOTVIKTSTRUCK<br>
+----------------------------------------<br>
 Modell: Toyota<br>
 Drivning: Elektrisk<br>
 Max lyfthöjd: 4500 mm<br>
@@ -29,10 +29,10 @@ Arbete: Lastar och lossar gods vid lastkajen.<br>
 Aktuell last: 1500 / 2500 kg<br>
 ████████████░░░░░░░░ 60%<br>
 Ledig kapacitet: 1000 kg<br>
-Status: LEDIG KAPACITET
+Status: LEDIG KAPACITET<br>
 
-LS-001 | LEDSTAPLARE
-----------------------------------------
+LS-001 | LEDSTAPLARE<br>
+----------------------------------------<br>
 Modell: BT<br>
 Drivning: Elektrisk<br>
 Max lyfthöjd: 3000 mm<br>
@@ -40,10 +40,10 @@ Arbete: Placerar gods i ett lagerstallage<br>
 Aktuell last: 800 / 1200 kg<br>
 █████████████░░░░░░░ 67%<br>
 Ledig kapacitet: 400 kg<br>
-Status: LEDIG KAPACITET
+Status: LEDIG KAPACITET<br>
 
-PD-001 | PALLDRAGARE
-----------------------------------------
+PD-001 | PALLDRAGARE<br>
+----------------------------------------<br>
 Modell: BT Lifter<br>
 Drivning: Manuell<br>
 Max lyfthöjd: 200 mm<br>
@@ -51,10 +51,10 @@ Arbete: Förflyttar gods till packstationen.<br>
 Aktuell last: 500 / 2000 kg<br>
 █████░░░░░░░░░░░░░░░ 25%<br>
 Ledig kapacitet: 1500 kg<br>
-Status: LEDIG KAPACITET
+Status: LEDIG KAPACITET<br>
 
 ========================================<br>
-REGELTESTER<br>
+   REGELTESTER<br>
 ========================================<br>
 
 Test: TR-001<br>
@@ -63,7 +63,7 @@ Försöker tilldela: -1 kg<br>
 Förväntat: Nekas<br>
 [STOPP] -1 kg är inte tillåtet. tillåten intervall: 0-2500 kg.<br>
 Efter: 1500 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: TR-001<br>
 Före: 1500 kg<br>
@@ -71,14 +71,14 @@ Försöker tilldela: 2501 kg<br>
 Förväntat: Nekas<br>
 [STOPP] 2501 kg är inte tillåtet. tillåten intervall: 0-2500 kg.<br>
 Efter: 1500 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: TR-001<br>
 Före: 1500 kg<br>
 Försöker tilldela: 0 kg<br>
 Förväntat: Accepteras<br>
 Efter: 0 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: TR-001<br>
 Före: 0 kg<br>
@@ -86,7 +86,7 @@ Försöker tilldela: 2500 kg<br>
 Förväntat: Accepteras<br>
 Efter: 2500 kg<br>
 [OK] Testet lyckades.<br>
-Ursprunglig last återställd: 1500 kg
+Ursprunglig last återställd: 1500 kg<br>
 
 Test: LS-001<br>
 Före: 800 kg<br>
@@ -94,7 +94,7 @@ Försöker tilldela: -1 kg<br>
 Förväntat: Nekas<br>
 [STOPP] -1 kg är inte tillåtet. tillåten intervall: 0-1200 kg.<br>
 Efter: 800 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: LS-001<br>
 Före: 800 kg<br>
@@ -102,14 +102,14 @@ Försöker tilldela: 1201 kg<br>
 Förväntat: Nekas<br>
 [STOPP] 1201 kg är inte tillåtet. tillåten intervall: 0-1200 kg.<br>
 Efter: 800 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: LS-001<br>
 Före: 800 kg<br>
 Försöker tilldela: 0 kg<br>
 Förväntat: Accepteras<br>
 Efter: 0 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: LS-001<br>
 Före: 0 kg<br>
@@ -117,7 +117,7 @@ Försöker tilldela: 1200 kg<br>
 Förväntat: Accepteras<br>
 Efter: 1200 kg<br>
 [OK] Testet lyckades.<br>
-Ursprunglig last återställd: 800 kg
+Ursprunglig last återställd: 800 kg<br>
 
 Test: PD-001<br>
 Före: 500 kg<br>
@@ -125,7 +125,7 @@ Försöker tilldela: -1 kg<br>
 Förväntat: Nekas<br>
 [STOPP] -1 kg är inte tillåtet. tillåten intervall: 0-2000 kg.<br>
 Efter: 500 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: PD-001<br>
 Före: 500 kg<br>
@@ -133,14 +133,14 @@ Försöker tilldela: 2001 kg<br>
 Förväntat: Nekas<br>
 [STOPP] 2001 kg är inte tillåtet. tillåten intervall: 0-2000 kg.<br>
 Efter: 500 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: PD-001<br>
 Före: 500 kg<br>
 Försöker tilldela: 0 kg<br>
 Förväntat: Accepteras<br>
 Efter: 0 kg<br>
-[OK] Testet lyckades.
+[OK] Testet lyckades.<br>
 
 Test: PD-001<br>
 Före: 0 kg<br>
@@ -148,27 +148,27 @@ Försöker tilldela: 2000 kg<br>
 Förväntat: Accepteras<br>
 Efter: 2000 kg<br>
 [OK] Testet lyckades.<br>
-Ursprunglig last återställd: 500 kg
+Ursprunglig last återställd: 500 kg<br>
 
 ========================================<br>
-TESTRESULTAT<br>
+   TESTRESULTAT<br>
 ========================================<br>
 Genomförda tester: 12<br>
 Godkända tester: 12<br>
-misslyckade tester: 0<br>
-[OK] Samtliga regeltester godkända.
+Misslyckade tester: 0<br>
+[OK] Samtliga regeltester godkända.<br>
 
 ========================================<br>
-LAGERÖVERSIKT<br>
+   LAGERÖVERSIKT<br>
 ========================================<br>
 Antal maskiner: 3<br>
 Total aktuell last: 2800 kg<br>
 Total lastkapacitet: 5700 kg<br>
 Ledig lastkapacitet: 2900 kg<br>
 ██████████░░░░░░░░░░ 49%<br>
-========================================
+========================================<br>
 
-Process finished with exit code 0
+Process finished with exit code 0<br>
 
 ## Felsökning
 Ett vanligt förekommande fel när jag skulle köra koden var att jag gång på gång fick felmeddelanden gällande att miss-match på olika namn när det kommer till stor och liten bokstav eller ett stavfel.
